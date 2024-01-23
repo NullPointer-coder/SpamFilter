@@ -40,7 +40,7 @@ def classify_emails(service, user_id='me'):
     try:
         results = service.users().messages().list(userId=user_id, labelIds=['INBOX']).execute()
         messages = results['messages']
-
+        
         for message in messages:
           msg = service.users().messages().get(userId=user_id, id=message['id']).execute()
           payload = msg['payload']
